@@ -226,8 +226,8 @@ def calculate_kpis(main_df, inv_df):
 
     date_col = find_col(main_df, 'Date')
     if date_col:
-        dates = pd.to_datetime(main_df[date_col], errors='coerce').dropna()
-        kpis['Report Date'] = dates.max().strftime('%d-%m-%Y') if not dates.empty else 'N/A'
+        dates = main_df[date_col][2]
+        kpis['Report Date'] = dates
     else:
         kpis['Report Date'] = 'N/A'
 
